@@ -40,7 +40,7 @@ public class TelegramBotUpdatesListener implements UpdatesListener {
             String messageText = update.message().text();
             Long chatId = update.message().chat().id();
             if (update.message().text() != null && messageText.equals("/start")) {
-                SendMessage message = new SendMessage(chatId, "Hello, Sergey!");
+                SendMessage message = new SendMessage(chatId, "Hello, Sergey!!!");
                 telegramBot.execute(message);
             }
             splitMessage(chatId, messageText);
