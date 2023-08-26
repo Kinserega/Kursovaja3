@@ -11,11 +11,11 @@ public class NotificationTask {
 //    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-//    @Column(name = "chatId")
+//    @Column(name = "chat")
     private Long chat;
 //    @Column(name = "message")
     private String message;
-//    @Column(name = "sendDateTime")
+//    @Column(name = "send_date_time")
     private LocalDateTime send_date_time;
 
     public NotificationTask(Long id, Long chat, String message, LocalDateTime send_date_time) {
