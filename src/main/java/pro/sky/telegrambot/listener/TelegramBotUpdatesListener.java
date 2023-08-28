@@ -73,22 +73,11 @@ public class TelegramBotUpdatesListener implements UpdatesListener {
         sendMessage(chat, "Added new reminder");
     }
 
-    @Scheduled(cron = "0 0/1 * * * *")
-    public void sendNotifications() {
-        LocalDateTime now = LocalDateTime.now().truncatedTo(ChronoUnit.MINUTES);
-        List<NotificationTask> notificationTaskList = notificationTaskRepository.findByDateTime(now);
-        notificationTaskList.forEach((notificationTask -> {
-            Long chatId = notificationTask.getChat();
-            String message = notificationTask.getMessage();
-            sendMessage(chatId, message);
-        }));
-    }
 
-    private void sendMessage(Long chatId, String text) {
+    public void sendMessage(Long chatId, String text) {
         SendMessage message = new SendMessage(chatId, text);
         SendResponse response = telegramBot.execute(message);
         logger.info("Response: {}", response.isOk());
         logger.info("Error code: {}", response.errorCode());
     }
-
 }
