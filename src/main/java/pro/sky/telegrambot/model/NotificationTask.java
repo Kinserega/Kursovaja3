@@ -8,14 +8,10 @@ import java.util.Objects;
 @Table(name = "notification_task")
 public class NotificationTask {
     @Id
-//    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-//    @Column(name = "chatId")
     private Long chat;
-//    @Column(name = "message")
     private String message;
-//    @Column(name = "sendDateTime")
     private LocalDateTime send_date_time;
 
     public NotificationTask(Long id, Long chat, String message, LocalDateTime send_date_time) {
